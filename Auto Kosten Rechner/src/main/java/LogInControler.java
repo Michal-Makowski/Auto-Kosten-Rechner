@@ -17,16 +17,11 @@ import java.sql.Statement;
 public class LogInControler {
 
     @FXML
-    TextField textFieldUsername;
+    TextField textFieldUsername, textFieldPassword;
 
     @FXML
-    TextField textFieldPassword;
+    Button buttonLogin, buttonSingUp;
 
-    @FXML
-    Button buttonLogin;
-
-    @FXML
-    Button buttonSingUp;
     @FXML
     Label labelError;
 

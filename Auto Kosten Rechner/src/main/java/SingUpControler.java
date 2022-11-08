@@ -18,19 +18,10 @@ import java.util.Objects;
 public class SingUpControler {
 
     @FXML
-    TextField textFieldNewUsername;
+    TextField textFieldNewUsername, textFieldNewPassword, textFieldNewPasswordRepeat ;
 
     @FXML
-    TextField textFieldNewPassword;
-
-    @FXML
-    TextField textFieldNewPasswordRepeat;
-
-    @FXML
-    Button buttonLogIn;
-
-    @FXML
-    Button buttonSingUp;
+    Button buttonLogIn, buttonSingUp;
 
     @FXML
     Label labelError;
