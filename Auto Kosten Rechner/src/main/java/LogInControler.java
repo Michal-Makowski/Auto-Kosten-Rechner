@@ -1,10 +1,10 @@
+import DateBase.DBConnector;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -18,9 +18,6 @@ public class LogInControler {
 
     @FXML
     TextField textFieldUsername, textFieldPassword;
-
-    @FXML
-    Button buttonLogin, buttonSingUp;
 
     @FXML
     Label labelError;
