@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="150.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PopupWindow.AddFuelControler">
+   <children>
+      <Button fx:id="buttonOk" layoutX="155.0" layoutY="106.0" mnemonicParsing="false" onAction="#buttonOkClicked" prefHeight="30.0" prefWidth="90.0" text="OK">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonCancel" layoutX="305.0" layoutY="106.0" mnemonicParsing="false" onAction="#buttonCancelClicked" prefHeight="30.0" prefWidth="90.0" text="Abbrechen">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="textFieldCost" layoutX="65.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
+      <TextField fx:id="textFieldKilometer" layoutX="225.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
+      <TextField fx:id="textFieldDate" layoutX="385.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
+      <Label fx:id="labelError" layoutX="129.0" layoutY="81.0" prefHeight="17.0" prefWidth="293.0" />
+      <Label layoutX="65.0" layoutY="21.0" prefHeight="17.0" prefWidth="100.0" text="Betrag">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="225.0" layoutY="21.0" prefHeight="17.0" prefWidth="100.0" text="Kilometerstand">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="385.0" layoutY="21.0" prefHeight="17.0" prefWidth="100.0" text="Datum">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+   </children>
+</AnchorPane>
