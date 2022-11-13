@@ -1,6 +1,6 @@
 package Window;
 
-import DateBase.DBConnector;
+import DataBase.DBConnector;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +18,8 @@ import java.sql.Statement;
 
 public class LogInControler {
 
+    public static String user;
+
     @FXML
     TextField textFieldUsername, textFieldPassword;
 
@@ -26,6 +28,7 @@ public class LogInControler {
 
     @FXML
     private void buttonLoginClicked(ActionEvent event) throws SQLException, IOException {
+        user = textFieldUsername.getText();
         String verifyLogin = ("SELECT count(1) FROM users WHERE username = '" + textFieldUsername.getText() + "' AND password = '" + textFieldPassword.getText() + "'");
         Statement statement =  DBConnector.connect().createStatement();
         ResultSet queryResult = statement.executeQuery(verifyLogin);
@@ -37,6 +40,7 @@ public class LogInControler {
                     Scene scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
+
                 }
                 else{
                     labelError.setText("Falsche Username oder Password");

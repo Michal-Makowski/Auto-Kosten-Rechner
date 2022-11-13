@@ -24,25 +24,33 @@
                <padding>
                   <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                </padding></Button>
-            <ChoiceBox layoutX="384.0" layoutY="64.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="choiceBox" layoutX="384.0" layoutY="64.0" prefWidth="150.0" />
             <Label layoutX="45.0" layoutY="68.0" prefHeight="17.0" prefWidth="120.0" text="Fahrzeug hinzufügen" />
             <Label layoutX="45.0" layoutY="102.0" prefHeight="17.0" prefWidth="120.0" text="Tanken" />
             <Label layoutX="45.0" layoutY="135.0" prefHeight="17.0" prefWidth="120.0" text="Service" />
-            <TableView layoutX="19.0" layoutY="236.0" prefHeight="200.0" prefWidth="563.0">
+            <TableView fx:id="tableCost" layoutX="19.0" layoutY="236.0" prefHeight="200.0" prefWidth="563.0">
               <columns>
-                <TableColumn prefWidth="111.0" text="Kostenart" />
-                <TableColumn prefWidth="100.0" text="Kilometerstand" />
-                  <TableColumn prefWidth="100.0" text="Beschreibung" />
-                  <TableColumn prefWidth="100.0" text="Betrag" />
+                <TableColumn fx:id="columnCostType" prefWidth="111.0" text="Kostenart" />
+                  <TableColumn fx:id="columnCost" prefWidth="100.0" text="Betrag" />
+                <TableColumn fx:id="columnKilometer" prefWidth="100.0" text="Kilometerstand" />
+                  <TableColumn fx:id="columnDate" prefWidth="100.0" text="Datum" />
+                  <TableColumn fx:id="columnComment" prefWidth="100.0" text="Beschreibung" />
               </columns>
             </TableView>
             <Label layoutX="45.0" layoutY="29.0" prefHeight="17.0" prefWidth="112.0" text="User" />
-            <Label layoutX="183.0" layoutY="29.0" text="user name" />
+            <Label fx:id="labelUser" layoutX="183.0" layoutY="29.0" prefHeight="17.0" prefWidth="150.0" />
             <Label layoutX="272.0" layoutY="68.0" text="Kennzeichen" />
             <Label layoutX="272.0" layoutY="102.0" text="Marke" />
             <Label layoutX="272.0" layoutY="123.0" text="Model" />
             <Label layoutX="272.0" layoutY="144.0" text="EZ Jahr" />
-            <Button layoutX="433.0" layoutY="178.0" mnemonicParsing="false" text="Edit" />
+            <Button fx:id="buttonCarEdit" layoutX="272.0" layoutY="178.0" mnemonicParsing="false" text="Fahrzeug änderung" />
+            <Label fx:id="labelBrand" layoutX="384.0" layoutY="103.0" prefHeight="17.0" prefWidth="150.0" />
+            <Label fx:id="labelModel" layoutX="384.0" layoutY="123.0" prefHeight="17.0" prefWidth="150.0" />
+            <Label fx:id="labelRegistration" layoutX="384.0" layoutY="144.0" prefHeight="17.0" prefWidth="150.0" />
+            <Button fx:id="buttonCarDelete" layoutX="425.0" layoutY="178.0" mnemonicParsing="false" text="Fahrzeug löschen" />
+            <Button fx:id="buttonCostEdit" layoutX="45.0" layoutY="178.0" mnemonicParsing="false" onAction="#buttonCostEditClicked" text="Kosten ändern" />
+            <Button fx:id="buttonCostDelete" layoutX="149.0" layoutY="178.0" mnemonicParsing="false" onAction="#buttonCostDeleteClicked" text="Kosten löschen" />
+            <Label fx:id="labelError" layoutX="45.0" layoutY="210.0" prefHeight="17.0" prefWidth="490.0" textAlignment="CENTER" />
          </children></AnchorPane>
       <Label layoutX="42.0" layoutY="459.0" prefHeight="17.0" prefWidth="100.0" text="Gesamte Kosten" />
       <Label layoutX="301.0" layoutY="459.0" prefHeight="17.0" prefWidth="100.0" text="Kosten pro 100km" />

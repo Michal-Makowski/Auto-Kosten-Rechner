@@ -6,12 +6,15 @@ import Window.MainWindowControler;
 import com.sun.tools.javac.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class AddFuelControler {
+public class EditFuelControler implements Initializable {
 
     @FXML
     Label labelError;
@@ -38,4 +41,10 @@ public class AddFuelControler {
         Popup.close(event);
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+       /* textFieldCost.setText(String.valueOf(Popup.cost.getCost()));
+        textFieldDate.setText(String.valueOf(Popup.cost.getDate()));
+        textFieldKilometer.setText(String.valueOf(Popup.cost.getKilometer()));*/
+    }
 }

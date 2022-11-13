@@ -1,6 +1,6 @@
 package PopupWindow;
 
-import DateBase.DB;
+import DataBase.DbMethods;
 import Validation.AddCarValid;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +20,7 @@ public class AddCarControler {
    @FXML
     private void buttonOkClicked(ActionEvent event) throws SQLException {
         if(AddCarValid.carNumberValid() && AddCarValid.carBrandValid() && AddCarValid.carModelValid() && AddCarValid.carRegistrationValid()){
-            DB.dbAddCar(textFieldCarNumber.getText(), textFieldCarBrand.getText(), textFieldCarModel.getText(), textFieldCarRegistration.getText());
+            DbMethods.dbAddCar(textFieldCarNumber.getText(), textFieldCarBrand.getText(), textFieldCarModel.getText(), textFieldCarRegistration.getText());
             Popup.close(event);
         }else if(!AddCarValid.carNumberValid()){
             labelError.setText(Popup.NUMBER_ERROR);

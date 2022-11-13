@@ -1,5 +1,6 @@
 package PopupWindow;
 
+import DataBase.Cost;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,6 +12,7 @@ import java.io.IOException;
 
 public class Popup {
 
+
     public static final String BRAND_ERROR = "Bitte richtige Fahrzeug Marke eingeben";
     public static final String NUMBER_ERROR = "Bitte richtige Kennzeichennummer eingeben";
     public static final String MODEL_ERROR = "Bitte richtige Fahrzeug Model eingeben";
@@ -19,6 +21,17 @@ public class Popup {
     public static final String DATE_ERROR = "Bitte richtige Datum eingeben";
     public static final String KILOMETER_ERROR = "Bitte richtige Kilometerstand eingeben";
     public static final String COMMENT_ERROR = "Bitte richtige Beschreibung eingeben";
+
+    public static final String ADD_CAR_TITLE = "Fahrzeug hinzufügen";
+    public static final String ADD_CAR_URL = "/PopupWindow/AddCar.fxml";
+    public static final String ADD_FUEL_TITLE = "Tanken hinzufügen";
+    public static final String ADD_FUEL_URL = "/PopupWindow/AddFuel.fxml";
+    public static final String ADD_SERVICE_TITLE = "Service hinzufügen";
+    public static final String ADD_SERVICE_URL = "/PopupWindow/AddService.fxml";
+    public static final String EDIT_FUEL_TITLE = "Tanken ändern";
+    public static final String EDIT_FUEL_URL = "/PopupWindow/EditFuel.fxml";
+    public static final String EDIT_SERVICE_TITLE = "Service ändern";
+    public static final String EDIT_SERVICE_URL = "/PopupWindow/EditService.fxml";
 
     public static void close(ActionEvent event){
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -33,4 +46,5 @@ public class Popup {
         stage.setScene(scene);
         stage.show();
     }
+
 }

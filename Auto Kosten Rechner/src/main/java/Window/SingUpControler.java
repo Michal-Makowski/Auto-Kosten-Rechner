@@ -1,6 +1,6 @@
 package Window;
 
-import DateBase.DBConnector;
+import DataBase.DBConnector;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
