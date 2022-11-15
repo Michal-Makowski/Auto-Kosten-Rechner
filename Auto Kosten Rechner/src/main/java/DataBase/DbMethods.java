@@ -39,6 +39,30 @@ public class DbMethods {
         statement.executeUpdate(deleteCost);
     }
 
+    public static void dbEditFuel(int id, String fuelCost, String fuelKilometer, String fuelDate ) throws SQLException{
+        String editFuel = "UPDATE costs SET cost='"+ fuelCost + "', kilometer='"+ fuelKilometer + "', date='"+ fuelDate +"' WHERE cost_id='"+ id +"'";
+        Statement statement = DBConnector.connect().createStatement();
+        statement.executeUpdate(editFuel);
+    }
+
+    public static void dbEditService(int id, String serviceCost, String serviceKilometer, String serviceDate, String serviceComment) throws SQLException{
+        String editFuel = "UPDATE costs SET cost='"+ serviceCost + "', kilometer='"+ serviceKilometer + "', date='"+ serviceDate +"', comment='"+ serviceComment+"' WHERE cost_id='"+ id +"'";
+        Statement statement = DBConnector.connect().createStatement();
+        statement.executeUpdate(editFuel);
+    }
+
+    public static void dbDeleteCar(int carID) throws SQLException {
+        String deleteCar = "DELETE FROM car WHERE car_id='"+ carID +"'";
+        Statement statement = DBConnector.connect().createStatement();
+        statement.executeUpdate(deleteCar);
+    }
+
+    public static void dbEditCar(int carID, String carNumber, String carBrand, String carModel, String carRegistration) throws SQLException{
+        String editCar = "UPDATE car SET number='"+ carNumber +"' , brand='"+ carBrand +"', model='"+ carModel +"' , registration='"+ carRegistration +"' WHERE car_id='"+ carID +"'";
+        Statement statement = DBConnector.connect().createStatement();
+        statement.executeUpdate(editCar);
+    }
+
     public static ArrayList<Car> allCars() throws SQLException {
         ArrayList<Car> cars = new ArrayList<>();
         String getCars = ("SELECT * FROM car");

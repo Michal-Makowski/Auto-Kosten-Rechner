@@ -1,5 +1,6 @@
 package PopupWindow;
 
+import DataBase.Car;
 import DataBase.Cost;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +33,8 @@ public class Popup {
     public static final String EDIT_FUEL_URL = "/PopupWindow/EditFuel.fxml";
     public static final String EDIT_SERVICE_TITLE = "Service ändern";
     public static final String EDIT_SERVICE_URL = "/PopupWindow/EditService.fxml";
+    public static final String EDIT_CAR_TITLE = "Fahrzeug daten ändern";
+    public static final String EDIT_CAR_URL = "/PopupWindow/EditCar.fxml";
 
     public static void close(ActionEvent event){
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -46,5 +49,42 @@ public class Popup {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void newEditFuelPopup(String title, String url, Cost cost) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(url));
+        Parent root = loader.load();
+        EditFuelControler editFuelControler = loader.getController();
+        editFuelControler.setFuel(cost);
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setTitle(title);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void newEditServicePopup(String title, String url, Cost cost) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(url));
+        Parent root = loader.load();
+        EditServiceControler editFuelControler = loader.getController();
+        editFuelControler.setService(cost);
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setTitle(title);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void newEditCarPopup(String title, String url, Car car) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(url));
+        Parent root = loader.load();
+        EditCarControler editCarControler = loader.getController();
+        editCarControler.setCar(car);
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setTitle(title);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 
 }

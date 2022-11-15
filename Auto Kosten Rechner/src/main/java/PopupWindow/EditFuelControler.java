@@ -1,5 +1,6 @@
 package PopupWindow;
 
+import DataBase.Cost;
 import DataBase.DbMethods;
 import Validation.AddFuelValid;
 import Window.MainWindowControler;
@@ -14,7 +15,9 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class EditFuelControler implements Initializable {
+public class EditFuelControler {
+
+    Cost cost = new Cost();
 
     @FXML
     Label labelError;
@@ -25,7 +28,7 @@ public class EditFuelControler implements Initializable {
     @FXML
     private void buttonOkClicked(ActionEvent event) throws SQLException {
         if(AddFuelValid.fuelCostValid() && AddFuelValid.fuelDateValid() && AddFuelValid.fuelKilometerValid()){
-            DbMethods.dbAddFuel(textFieldCost.getText(), textFieldKilometer.getText(), textFieldDate.getText());
+            DbMethods.dbEditFuel(cost.getId(), textFieldCost.getText(), textFieldKilometer.getText(), textFieldDate.getText());
             Popup.close(event);
         }else if(!AddFuelValid.fuelCostValid()){
             labelError.setText(Popup.COST_ERROR);
@@ -41,10 +44,11 @@ public class EditFuelControler implements Initializable {
         Popup.close(event);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-       /* textFieldCost.setText(String.valueOf(Popup.cost.getCost()));
-        textFieldDate.setText(String.valueOf(Popup.cost.getDate()));
-        textFieldKilometer.setText(String.valueOf(Popup.cost.getKilometer()));*/
+
+    public void setFuel(Cost cost) {
+        this.cost = cost;
+        textFieldCost.setText(String.valueOf(cost.getCost()));
+        textFieldDate.setText(String.valueOf(cost.getDate()));
+        textFieldKilometer.setText(String.valueOf(cost.getKilometer()));
     }
 }
