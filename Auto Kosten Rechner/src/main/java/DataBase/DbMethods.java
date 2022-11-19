@@ -20,7 +20,7 @@ public class DbMethods {
 
     public static void dbAddFuel(String fuelCost, String fuelKilometer, String fuelDate) throws SQLException {
         String costType = "Tanken";
-        String addCar = "INSERT INTO costs (cost_type, cost, kilometer, date, comment, car) VALUES ('" + costType + "','" + fuelCost + "','" + fuelKilometer + "','" + fuelDate + "','','" + MainWindowControler.carNumber + "')";
+        String addCar = "INSERT INTO costs (cost_type, cost, kilometer, date, comment, car_id) VALUES ('" + costType + "','" + fuelCost + "','" + fuelKilometer + "','" + fuelDate + "','','" + MainWindowControler.carID + "')";
         Statement statement = DBConnector.connect().createStatement();
         statement.executeUpdate(addCar);
 
@@ -28,7 +28,7 @@ public class DbMethods {
 
     public static void dbAddService(String serviceCost, String serviceKilometer, String serviceDate, String serviceComment) throws SQLException {
         String costType = "Service";
-        String addCar = "INSERT INTO costs (cost_type, cost, kilometer, date, comment, car) VALUES ('" + costType + "','" + serviceCost + "','" + serviceKilometer + "','" + serviceDate + "','" + serviceComment + "','" + MainWindowControler.carNumber + "')";
+        String addCar = "INSERT INTO costs (cost_type, cost, kilometer, date, comment, car_id) VALUES ('" + costType + "','" + serviceCost + "','" + serviceKilometer + "','" + serviceDate + "','" + serviceComment + "','" + MainWindowControler.carID + "')";
         Statement statement = DBConnector.connect().createStatement();
         statement.executeUpdate(addCar);
     }
@@ -53,7 +53,9 @@ public class DbMethods {
 
     public static void dbDeleteCar(int carID) throws SQLException {
         String deleteCar = "DELETE FROM car WHERE car_id='"+ carID +"'";
+        String deleteCost = "DELETE FROM costs WHERE car_id='" + carID + "'";
         Statement statement = DBConnector.connect().createStatement();
+        statement.executeUpdate(deleteCost);
         statement.executeUpdate(deleteCar);
     }
 
@@ -63,9 +65,9 @@ public class DbMethods {
         statement.executeUpdate(editCar);
     }
 
-    public static ArrayList<Car> allCars() throws SQLException {
+    public static ArrayList<Car> allCars(String user) throws SQLException {
         ArrayList<Car> cars = new ArrayList<>();
-        String getCars = ("SELECT * FROM car");
+        String getCars = ("SELECT * FROM car WHERE user='" + user + "'");
         Statement statement =  DBConnector.connect().createStatement();
         ResultSet queryResult = statement.executeQuery(getCars);
 
@@ -81,9 +83,9 @@ public class DbMethods {
         return cars;
     }
 
-    public static ObservableList<Cost> allCost(String carNumber) throws SQLException{
+    public static ObservableList<Cost> allCost(int carID) throws SQLException{
         ObservableList<Cost> costs = FXCollections.observableArrayList();
-        String getCosts = ("SELECT * From costs WHERE car='" + carNumber +"'");
+        String getCosts = ("SELECT * From costs WHERE car_id='" + carID +"'");
         Statement statement =  DBConnector.connect().createStatement();
         ResultSet queryResult = statement.executeQuery(getCosts);
         while (queryResult.next()){
@@ -94,7 +96,7 @@ public class DbMethods {
             cost.setKilometer(queryResult.getInt("kilometer"));
             cost.setDate(queryResult.getString("date"));
             cost.setComment(queryResult.getString("comment"));
-            cost.setCar(queryResult.getString("car"));
+            cost.setCarID(queryResult.getInt("car_id"));
             costs.add(cost);
         }
         return costs;

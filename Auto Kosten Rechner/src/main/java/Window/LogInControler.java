@@ -35,12 +35,7 @@ public class LogInControler {
             while (queryResult.next()) {
                 if(queryResult.getInt(1) == 1) {
                     labelError.setText("");
-                    Parent root = FXMLLoader.load(getClass().getResource("/Window/MainWindow.fxml"));
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-
+                    WindowMethods.newWindow(event, WindowMethods.MAIN_WINDOW_TITLE, WindowMethods.MAIN_WINDOW_URL);
                 }
                 else{
                     labelError.setText("Falsche Username oder Password");
@@ -50,10 +45,6 @@ public class LogInControler {
 
     @FXML
     private void buttonSingUpClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/Window/SingUp.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        WindowMethods.newWindow(event, WindowMethods.SING_UP_TITLE, WindowMethods.SING_UP_URL);
     }
 }

@@ -37,8 +37,8 @@
                   <TableColumn fx:id="columnComment" prefWidth="100.0" text="Beschreibung" />
               </columns>
             </TableView>
-            <Label layoutX="45.0" layoutY="29.0" prefHeight="17.0" prefWidth="112.0" text="User" />
-            <Label fx:id="labelUser" layoutX="183.0" layoutY="29.0" prefHeight="17.0" prefWidth="150.0" />
+            <Label layoutX="45.0" layoutY="29.0" prefHeight="17.0" prefWidth="73.0" text="User" />
+            <Label fx:id="labelUser" layoutX="116.0" layoutY="29.0" prefHeight="17.0" prefWidth="67.0" />
             <Label layoutX="272.0" layoutY="68.0" text="Kennzeichen" />
             <Label layoutX="272.0" layoutY="102.0" text="Marke" />
             <Label layoutX="272.0" layoutY="123.0" text="Model" />
@@ -51,6 +51,7 @@
             <Button fx:id="buttonCostEdit" layoutX="45.0" layoutY="178.0" mnemonicParsing="false" onAction="#buttonCostEditClicked" text="Kosten ändern" />
             <Button fx:id="buttonCostDelete" layoutX="149.0" layoutY="178.0" mnemonicParsing="false" onAction="#buttonCostDeleteClicked" text="Kosten löschen" />
             <Label fx:id="labelError" layoutX="45.0" layoutY="210.0" prefHeight="17.0" prefWidth="490.0" textAlignment="CENTER" />
+            <Button fx:id="buttonLogout" layoutX="193.0" layoutY="25.0" mnemonicParsing="false" onAction="#buttonLogoutClicked" text="Logout" />
          </children></AnchorPane>
       <Label layoutX="42.0" layoutY="459.0" prefHeight="17.0" prefWidth="100.0" text="Gesamte Kosten" />
       <Label layoutX="301.0" layoutY="459.0" prefHeight="17.0" prefWidth="100.0" text="Kosten pro 100km" />

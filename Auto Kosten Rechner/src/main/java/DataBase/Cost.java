@@ -8,7 +8,7 @@ public class Cost {
     private int kilometer;
     private String date;
     private String comment;
-    private String car;
+    private int carID;
 
     public int getId() {
         return id;
@@ -54,8 +54,8 @@ public class Cost {
         this.comment  = comment;
     }
 
-    public String getCar(){return car;}
+    public int getCarID(){return carID;}
 
-    public void setCar(String car){ this.car = car; }
+    public void setCarID(int carID){ this.carID = carID; }
 
 }
