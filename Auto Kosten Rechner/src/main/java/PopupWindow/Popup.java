@@ -11,8 +11,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Popup {
 
+public class Popup {
 
     public static final String BRAND_ERROR = "Bitte richtige Fahrzeug Marke eingeben";
     public static final String NUMBER_ERROR = "Bitte richtige Kennzeichennummer eingeben";
@@ -41,16 +41,17 @@ public class Popup {
         stage.close();
     }
 
-    public void newPopup(String title, String url) throws IOException {
+    public Stage newPopup(String title, String url) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(url));
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         stage.setTitle(title);
         stage.setScene(scene);
         stage.show();
+        return stage;
     }
 
-    public void newEditFuelPopup(String title, String url, Cost cost) throws IOException {
+    public Stage newEditFuelPopup(String title, String url, Cost cost) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(url));
         Parent root = loader.load();
         EditFuelControler editFuelControler = loader.getController();
@@ -60,9 +61,11 @@ public class Popup {
         stage.setTitle(title);
         stage.setScene(scene);
         stage.show();
+        return stage;
+
     }
 
-    public void newEditServicePopup(String title, String url, Cost cost) throws IOException {
+    public Stage newEditServicePopup(String title, String url, Cost cost) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(url));
         Parent root = loader.load();
         EditServiceControler editFuelControler = loader.getController();
@@ -72,9 +75,10 @@ public class Popup {
         stage.setTitle(title);
         stage.setScene(scene);
         stage.show();
+        return stage;
     }
 
-    public void newEditCarPopup(String title, String url, Car car) throws IOException{
+    public Stage newEditCarPopup(String title, String url, Car car) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource(url));
         Parent root = loader.load();
         EditCarControler editCarControler = loader.getController();
@@ -84,7 +88,9 @@ public class Popup {
         stage.setTitle(title);
         stage.setScene(scene);
         stage.show();
+        return stage;
     }
+
 
 
 }

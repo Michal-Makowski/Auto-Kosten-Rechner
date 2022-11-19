@@ -48,4 +48,9 @@ public class Car {
         this.registration  = registration;
     }
 
+    @Override
+    public String toString(){
+        return carNumber;
+    }
+
 }

@@ -2,6 +2,7 @@ package PopupWindow;
 
 import DataBase.DbMethods;
 import Validation.AddCarValid;
+import Window.MainWindowControler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -31,6 +32,7 @@ public class AddCarControler {
         }else if(!AddCarValid.carRegistrationValid()){
             labelError.setText(Popup.REGISTRATION_ERROR);
         }
+
     }
 
     @FXML

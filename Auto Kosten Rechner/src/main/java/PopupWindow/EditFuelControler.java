@@ -17,6 +17,8 @@ import java.util.ResourceBundle;
 
 public class EditFuelControler {
 
+
+
     Cost cost = new Cost();
 
     @FXML

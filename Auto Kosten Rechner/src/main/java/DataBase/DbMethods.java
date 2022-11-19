@@ -98,7 +98,6 @@ public class DbMethods {
             costs.add(cost);
         }
         return costs;
-
     }
 
 }
