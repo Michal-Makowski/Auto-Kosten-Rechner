@@ -5,25 +5,28 @@ import DataBase.DbMethods;
 import Validation.AddServiceValid;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
-import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class EditServiceControler {
 
-    Cost cost = new Cost();
+    private Cost cost = new Cost();
 
     @FXML
-    Label labelError;
+    private Label labelError;
 
     @FXML
-    TextField textFieldCost, textFieldKilometer, textFieldDate, textFieldComment;
+    private TextField textFieldCost, textFieldKilometer, textFieldComment;
 
     @FXML
-    private void buttonOkClicked(ActionEvent event) throws SQLException {
+    private DatePicker datePicker;
+
+    @FXML
+    private void buttonOkClicked(ActionEvent event) {
         if(AddServiceValid.serviceCommentValid() && AddServiceValid.serviceCostValid() && AddServiceValid.serviceDateValid() && AddServiceValid.serviceKilometerValid()){
-            DbMethods.dbEditService(cost.getId(), textFieldCost.getText(), textFieldKilometer.getText(), textFieldDate.getText(), textFieldComment.getText());
+            DbMethods.dbEditService(cost.getId(), textFieldCost.getText(), textFieldKilometer.getText(), datePicker.getValue().toString(), textFieldComment.getText());
             Popup.close(event);
         }else if (!AddServiceValid.serviceDateValid()){
             labelError.setText(Popup.DATE_ERROR);
@@ -44,7 +47,7 @@ public class EditServiceControler {
     public void setService(Cost cost) {
         this.cost = cost;
         textFieldCost.setText(String.valueOf(cost.getCost()));
-        textFieldDate.setText(String.valueOf(cost.getDate()));
+        datePicker.setValue(LocalDate.parse(cost.getDate()));
         textFieldKilometer.setText(String.valueOf(cost.getKilometer()));
         textFieldComment.setText(String.valueOf(cost.getComment()));
     }

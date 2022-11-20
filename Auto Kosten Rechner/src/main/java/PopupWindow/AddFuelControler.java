@@ -2,27 +2,31 @@ package PopupWindow;
 
 import DataBase.DbMethods;
 import Validation.AddFuelValid;
-import Window.MainWindowControler;
-import com.sun.tools.javac.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
 
-import java.sql.SQLException;
-
-public class AddFuelControler {
-
-    @FXML
-    Label labelError;
+public class AddFuelControler implements Initializable {
 
     @FXML
-    TextField textFieldCost, textFieldDate, textFieldKilometer;
+    private Label labelError;
 
     @FXML
-    private void buttonOkClicked(ActionEvent event) throws SQLException {
+    private TextField textFieldCost, textFieldKilometer;
+
+    @FXML
+    private DatePicker datePicker;
+
+    @FXML
+    private void buttonOkClicked(ActionEvent event) {
         if(AddFuelValid.fuelCostValid() && AddFuelValid.fuelDateValid() && AddFuelValid.fuelKilometerValid()){
-            DbMethods.dbAddFuel(textFieldCost.getText(), textFieldKilometer.getText(), textFieldDate.getText());
+            DbMethods.dbAddFuel(textFieldCost.getText(), textFieldKilometer.getText(), datePicker.getValue().toString());
             Popup.close(event);
         }else if(!AddFuelValid.fuelCostValid()){
             labelError.setText(Popup.COST_ERROR);
@@ -38,4 +42,8 @@ public class AddFuelControler {
         Popup.close(event);
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        datePicker.setValue(LocalDate.now());
+    }
 }

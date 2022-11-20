@@ -18,7 +18,6 @@
       </Button>
       <TextField fx:id="textFieldCost" layoutX="65.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
       <TextField fx:id="textFieldKilometer" layoutX="225.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
-      <TextField fx:id="textFieldDate" layoutX="385.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
       <Label fx:id="labelError" layoutX="129.0" layoutY="81.0" prefHeight="17.0" prefWidth="293.0" />
       <Label layoutX="65.0" layoutY="21.0" prefHeight="17.0" prefWidth="100.0" text="Betrag">
          <font>
@@ -32,5 +31,6 @@
          <font>
             <Font size="14.0" />
          </font></Label>
+      <DatePicker fx:id="datePicker" layoutX="385.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
    </children>
 </AnchorPane>

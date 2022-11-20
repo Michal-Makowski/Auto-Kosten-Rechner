@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="150.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PopupWindow.EditServiceControler">
+<AnchorPane prefHeight="150.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PopupWindow.EditServiceControler">
     <children>
         <Button fx:id="buttonOk" layoutX="155.0" layoutY="106.0" mnemonicParsing="false" onAction="#buttonOkClicked" prefHeight="30.0" prefWidth="90.0" text="OK">
             <font>
@@ -21,7 +19,6 @@
         <Label fx:id="labelError" layoutX="129.0" layoutY="82.0" prefHeight="17.0" prefWidth="293.0" />
         <TextField fx:id="textFieldCost" layoutX="30.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
         <TextField fx:id="textFieldKilometer" layoutX="160.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
-        <TextField fx:id="textFieldDate" layoutX="290.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
         <TextField fx:id="textFieldComment" layoutX="420.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
         <Label layoutX="34.0" layoutY="14.0" prefHeight="20.0" prefWidth="92.0" text="Betrag">
             <font>
@@ -44,5 +41,6 @@
             </font>
         </Label>
       <Label fx:id="labelError" layoutX="119.0" layoutY="82.0" prefHeight="17.0" prefWidth="312.0" />
+      <DatePicker fx:id="datePicker" layoutX="290.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
     </children>
 </AnchorPane>

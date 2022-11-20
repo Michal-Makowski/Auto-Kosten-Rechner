@@ -10,9 +10,13 @@ public class DBConnector {
 
     private static String PASSWORD = "1234";
 
-    public static Connection connect() throws SQLException {
+    public static Connection connect() {
         Connection connection = null;
-        connection = DriverManager.getConnection(URL, USER, PASSWORD);
+        try {
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return connection;
     }
 }

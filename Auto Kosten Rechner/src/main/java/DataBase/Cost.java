@@ -57,5 +57,4 @@ public class Cost {
     public int getCarID(){return carID;}
 
     public void setCarID(int carID){ this.carID = carID; }
-
 }

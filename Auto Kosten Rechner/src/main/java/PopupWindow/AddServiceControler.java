@@ -4,23 +4,29 @@ import DataBase.DbMethods;
 import Validation.AddServiceValid;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
 
-import java.sql.SQLException;
-
-public class AddServiceControler {
-
-    @FXML
-    Label labelError;
+public class AddServiceControler implements Initializable {
 
     @FXML
-    TextField textFieldCost, textFieldKilometer, textFieldDate, textFieldComment;
+    private Label labelError;
 
     @FXML
-    private void buttonOkClicked(ActionEvent event) throws SQLException {
+    private TextField textFieldCost, textFieldKilometer, textFieldComment;
+
+    @FXML
+    private DatePicker datePicker;
+
+    @FXML
+    private void buttonOkClicked(ActionEvent event) {
         if(AddServiceValid.serviceCommentValid() && AddServiceValid.serviceCostValid() && AddServiceValid.serviceDateValid() && AddServiceValid.serviceKilometerValid()){
-            DbMethods.dbAddService(textFieldCost.getText(), textFieldKilometer.getText(), textFieldDate.getText(), textFieldComment.getText());
+            DbMethods.dbAddService(textFieldCost.getText(), textFieldKilometer.getText(), datePicker.getValue().toString(), textFieldComment.getText());
             Popup.close(event);
         }else if (!AddServiceValid.serviceDateValid()){
             labelError.setText(Popup.DATE_ERROR);
@@ -36,5 +42,10 @@ public class AddServiceControler {
     @FXML
     private void buttonCancelClicked(ActionEvent event){
         Popup.close(event);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        datePicker.setValue(LocalDate.now());
     }
 }

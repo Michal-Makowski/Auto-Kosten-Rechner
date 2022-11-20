@@ -41,56 +41,77 @@ public class Popup {
         stage.close();
     }
 
-    public Stage newPopup(String title, String url) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(url));
-        Stage stage = new Stage();
-        Scene scene = new Scene(root);
-        stage.setTitle(title);
-        stage.setScene(scene);
-        stage.show();
+    public Stage newPopup(String title, String url) {
+        Parent root;
+        Stage stage = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource(url));
+            stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setTitle(title);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return stage;
     }
 
-    public Stage newEditFuelPopup(String title, String url, Cost cost) throws IOException {
+    public Stage newEditFuelPopup(String title, String url, Cost cost) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(url));
-        Parent root = loader.load();
-        EditFuelControler editFuelControler = loader.getController();
-        editFuelControler.setFuel(cost);
-        Stage stage = new Stage();
-        Scene scene = new Scene(root);
-        stage.setTitle(title);
-        stage.setScene(scene);
-        stage.show();
+        Parent root;
+        Stage stage = null;
+        try {
+            root = loader.load();
+            EditFuelControler editFuelControler = loader.getController();
+            editFuelControler.setFuel(cost);
+            stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setTitle(title);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return stage;
 
     }
 
-    public Stage newEditServicePopup(String title, String url, Cost cost) throws IOException {
+    public Stage newEditServicePopup(String title, String url, Cost cost) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(url));
-        Parent root = loader.load();
-        EditServiceControler editFuelControler = loader.getController();
-        editFuelControler.setService(cost);
-        Stage stage = new Stage();
-        Scene scene = new Scene(root);
-        stage.setTitle(title);
-        stage.setScene(scene);
-        stage.show();
+        Parent root;
+        Stage stage = null;
+        try {
+            root = loader.load();
+            EditServiceControler editFuelControler = loader.getController();
+            editFuelControler.setService(cost);
+            stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setTitle(title);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return stage;
     }
 
-    public Stage newEditCarPopup(String title, String url, Car car) throws IOException{
+    public Stage newEditCarPopup(String title, String url, Car car) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(url));
-        Parent root = loader.load();
-        EditCarControler editCarControler = loader.getController();
-        editCarControler.setCar(car);
-        Stage stage = new Stage();
-        Scene scene = new Scene(root);
-        stage.setTitle(title);
-        stage.setScene(scene);
-        stage.show();
+        Parent root;
+        Stage stage = null;
+        try {
+            root = loader.load();
+            EditCarControler editCarControler = loader.getController();
+            editCarControler.setCar(car);
+            stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setTitle(title);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return stage;
     }
-
-
-
 }
